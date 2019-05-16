@@ -1,13 +1,13 @@
 #include <iostream>
+#include "shape.h"
 
-#include "circle.h"
-// #include "square.h"
+using namespace std;
 
 int main(int argc, char const *argv[])
 {
 	Circle c{0, 0, 5};
 	c.print();
-	std::cout << "The area of this circle is " << c.calculateArea() << std::endl;
+	cout << "The area of this circle is " << c.calculateArea() << endl;
 
 	return 0;
 }

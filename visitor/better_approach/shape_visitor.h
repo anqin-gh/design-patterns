@@ -2,9 +2,8 @@
 #define SHAPE_VISITOR_H
 
 #include <sstream>
-
+#include <string>
 #include <cmath>
-#include <cstdint>
 
 class Circle;
 class Shape;
@@ -25,9 +24,11 @@ public:
 	void visit(const Circle& c) override;
 	void visit(const Square& s) override;
 
+	string str() const { return oss.str(); }
 	void apply2(Shape& sh);
 
-	std::ostringstream oss;
+private:
+	ostringstream oss;
 };
 
 class ShapeAreaCalculator : public ShapeVisitor
@@ -36,7 +37,7 @@ public:
 	void visit(const Circle& c) override;
 	void visit(const Square& s) override;
 
-	double area;
+	float area;
 };
 
 class ShapePerimeterCalculator : public ShapeVisitor
@@ -45,7 +46,7 @@ public:
 	void visit(const Circle& c) override;
 	void visit(const Square& s) override;
 
-	double perimeter;
+	float perimeter;
 };
 
 #endif // SHAPE_VISITOR_H
